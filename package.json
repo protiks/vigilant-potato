@@ -1,0 +1,25 @@
+{
+  "name": "vigilant-potato",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/protiks/vigilant-potato.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/protiks/vigilant-potato/issues"
+  },
+  "homepage": "https://github.com/protiks/vigilant-potato#readme",
+  "devDependencies": {
+    "jest": "^29.1.2"
+  },
+  "dependencies": {
+    "@types/jest": "^29.1.2"
+  }
+}
