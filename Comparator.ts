@@ -1,10 +1,6 @@
-interface NewType {
-    compareFunction: any
-}
-
 class Comparator {
     compare: any
-    constructor({ compareFunction }: NewType) {
+    constructor( compareFunction: any  ) {
         this.compare = compareFunction || Comparator.defaultCompareFunction
     }
     static defaultCompareFunction(a: number, b: number) {
@@ -31,6 +27,4 @@ class Comparator {
         
     }
 }
-const a = new Comparator()
-console.log(a)
 export default Comparator

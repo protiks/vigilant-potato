@@ -1,16 +1,16 @@
 import LinkedListNode from './LinkedListNode'
 import Comparator from './Comparator'
 
-type Node = LinkedListNode | null | undefined 
+type Node = LinkedListNode | null | undefined
 
 class LinkedList {
     /**
      * @param {Function} [comparatorFunction]
     */
-    head: Node
-    tail: Node
-    compare: Comparator
-    constructor({ comparatorFunction }: { comparatorFunction: any }) {
+    public head: Node
+    public tail: Node
+    public compare: Comparator
+    constructor(comparatorFunction?: any) {
         /** @var {Node} */
         this.head = null
         /** @var {Node} */
@@ -43,14 +43,12 @@ class LinkedList {
         if (!this.head) {
             this.head = newNode
             this.tail = newNode
+            console.log('this.tail is here', this.tail)
             return this
         }
         // Attatch new node to the end of linked list 
-        if(this.tail?.next) {
-            this.tail.next = newNode
-            this.tail = newNode
-        }
-
+        this.tail!.next = newNode
+        this.tail = newNode
         return this
     }
 
@@ -139,8 +137,8 @@ class LinkedList {
             return deletedTail
         }
         let currentNode = this.head
-        while(currentNode?.next){
-            if(!currentNode.next.next){
+        while (currentNode?.next) {
+            if (!currentNode.next.next) {
                 currentNode.next = null
             } else {
                 currentNode = currentNode.next
@@ -151,7 +149,7 @@ class LinkedList {
     }
 
     deleteHead(): LinkedListNode | null {
-        if(!this.head) {
+        if (!this.head) {
             return null
         }
         const deletedHead = this.head
@@ -166,9 +164,9 @@ class LinkedList {
     /** 
      * @param {*[]}
      * @return {LinkedList}
-     * */    
+     * */
     fromArray(values: any[]): LinkedList {
-        values.forEach(value => this.append(value)) 
+        values.forEach(value => this.append(value))
         return this
     }
     /**
@@ -177,7 +175,7 @@ class LinkedList {
     toArray(): LinkedListNode[] {
         const nodes: LinkedListNode[] = []
         let currentNode = this.head
-        while(currentNode) {
+        while (currentNode) {
             nodes.push(currentNode)
             currentNode = currentNode.next
         }
@@ -187,20 +185,20 @@ class LinkedList {
      * @param {function} [callback]
      * @return {string}
     */
-    toString(callback: any): any[] {
-        return this.toArray().map((node)=> node.toString(callback).toString())
-    }
+   toString(callback?: Function): string {
+    return this.toArray().map((node) => node.toString(callback)).toString()
+   }
 
     reverse() {
         let currentNode: Node = this.head
         let previousNode: Node = null
         let nextNode: Node = null
 
-        while(currentNode) {
+        while (currentNode) {
             nextNode = currentNode.next
 
             currentNode.next = previousNode
-            
+
             previousNode = currentNode
             currentNode = nextNode
         }
@@ -209,10 +207,11 @@ class LinkedList {
         this.head = previousNode
         return this
     }
-
-
-
 }
+const a = new LinkedList()
+a.append(1)
+a.append(2)
+console.log(a.head?.toString)
 
 
 export default LinkedList

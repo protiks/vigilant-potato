@@ -1,7 +1,7 @@
 import LinkedList from './LinkedList'
 
 class Stack {
-    linkedList: LinkedList
+    public linkedList: LinkedList
     constructor() {
         this.linkedList = new LinkedList()
     }
@@ -44,8 +44,8 @@ class Stack {
     }
 
 
-
-
 }
+const a = new Stack()
+console.log(a)
 
 export default Stack
