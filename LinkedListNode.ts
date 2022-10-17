@@ -1,7 +1,7 @@
-class LinkedListNode {
+class Node {
     value
     next
-    constructor(value?: any, next: LinkedListNode | null = null) {
+    constructor(value?: any, next: Node | null = null) {
         this.value = value
         this.next = next 
     }
@@ -11,11 +11,12 @@ class LinkedListNode {
     }
 }
 
-const a = new LinkedListNode(2)
+
+const a = new Node(2)
 // const b = new LinkedListNode(3)
 // const c = new LinkedListNode(4)
 console.log(a)
 // console.log(b)
 // console.log(c)
 
-export default LinkedListNode
+export default Node
