@@ -80,12 +80,17 @@ class LinkedList {
         }
         return this
     }
-
+    /**
+     * @param {*} value
+     * @return {LinkedListNode}
+    */
     delete(value: any): Node {
         if (!this.head) {
             return null
         }
-        let deletedNode: Node = null
+
+        let deletedNode = null
+
         while (this.head && this.compare.equal(this.head.value, value)) {
             deletedNode = this.head
             this.head = this.head.next
