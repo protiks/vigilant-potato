@@ -128,25 +128,31 @@ class LinkedList_v2<T> {
     }
     public removeTail() {
         let current_node = this.Head
+        let deleted_node_value 
         if (!current_node) {
             return
         }
-        console.log(this.Head, this.Tail)
         if (this.Tail === this.Head) {
             this.Tail = null
             this.Head = null
+            deleted_node_value = current_node.value 
         }
+        
         while (current_node.next) {
             if (!current_node.next.next) {
+                deleted_node_value = current_node.next.value
                 current_node.next = null
             } else {
                 current_node = current_node.next
+                this.Tail = current_node
             }
-            this.Tail = current_node
-            this.Size--
         }
-        return current_node.value
-
+        this.Size--
+        console.log('In class Tail:', this.Tail, '<<>>current_node:', current_node, '<<>>delete:' ,deleted_node_value)
+        return deleted_node_value 
+    }
+    public remove(value: T): T {
+        return value
     }
 
 }

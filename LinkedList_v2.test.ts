@@ -311,10 +311,10 @@ describe('Linked-List Tests', () => {
     expect(list.head).to.equal(4);
     expect(list.tail).to.equal(6);
     let val = list.remove(5);
+    expect(val).to.equal(5);
     expect(list.length).to.equal(2);
     expect(list.head).to.equal(4);
     expect(list.tail).to.equal(6);
-    expect(val).to.equal(5);
   });
 
   it('should remove a specified value from the end of the list', () => {
